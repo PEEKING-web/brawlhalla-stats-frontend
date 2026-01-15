@@ -1,15 +1,16 @@
 import axios from 'axios';
 
-const API_URL = 'http://localhost:5000/auth';
+const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000';
 
 const authAPI = axios.create({
-  baseURL: API_URL,
-  withCredentials: true // Important for cookies
+  baseURL: `${API_URL}/auth`,
+  withCredentials: true
 });
 
 export const loginWithSteam = () => {
-  window.location.href = `${API_URL}/steam`;
+  window.location.href = `${API_URL}/auth/steam`;
 };
+
 
 export const getCurrentUser = async () => {
   try {
