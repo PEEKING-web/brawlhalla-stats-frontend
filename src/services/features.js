@@ -4,9 +4,9 @@ const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000';
 
 const featuresAPI = axios.create({
   baseURL: `${API_URL}/api`,
-  withCredentials: true
+  withCredentials: true, // ✅ This 
+  timeout: 10000
 });
-
 // ===== FAVORITES =====
 export const getFavorites = async () => {
   const response = await featuresAPI.get('/favorites');
