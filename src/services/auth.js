@@ -1,16 +1,18 @@
 import axios from 'axios';
 
-const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000';
+// Use relative URL (empty string) to use Vercel proxy
+const API_URL = import.meta.env.VITE_API_URL || '';
 
 const authAPI = axios.create({
   baseURL: `${API_URL}/auth`,
-  withCredentials: true,  // ✅  here
-  timeout: 10000 // Add timeout
+  withCredentials: true
 });
 
 export const loginWithSteam = () => {
+  // Now points to /auth/steam which Vercel proxies to Railway
   window.location.href = `${API_URL}/auth/steam`;
 };
+
 
 export const getCurrentUser = async () => {
   try {
