@@ -20,7 +20,7 @@ function App() {
             <Route path="/player/:id" element={<PlayerProfile />} />
             <Route path="/leaderboard/:region" element={<Leaderboard />} />
             <Route path="/compare/:id1/:id2" element={<Compare />} />
-            <Route path="/auth/success" element={<AuthSuccess />} />
+            <Route path="/login/success" element={<AuthSuccess />} />
             <Route path="/my-profile" element={<MyProfile />} />
            <Route path="/watchlist" element={<Watchlist />} />
           </Routes>
