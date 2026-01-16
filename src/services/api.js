@@ -1,18 +1,15 @@
 import axios from 'axios';
 
-const API_KEY = '6BHY8QM2HZHRXWYIZCS5';
-const BASE_URL = 'https://api.brawlhalla.com';
+const API_URL = import.meta.env.VITE_API_URL || '';
 
 // Simple in-memory cache
 const cache = new Map();
 const CACHE_DURATION = 5 * 60 * 1000; // 5 minutes
 
 const api = axios.create({
-  baseURL: BASE_URL,
-  params: {
-    api_key: API_KEY
-  },
-  timeout: 10000 // 10 second timeout
+  baseURL: `${API_URL}/api/brawlhalla`,
+  withCredentials: true,
+  timeout: 10000
 });
 
 // Cache helper functions
@@ -42,7 +39,6 @@ export const getPlayerStats = async (playerId) => {
   const cached = getCachedData(cacheKey);
   
   if (cached) {
-    //console.log('✅ Returning cached player stats');
     return cached;
   }
 
@@ -64,7 +60,6 @@ export const getPlayerRanked = async (playerId) => {
   const cached = getCachedData(cacheKey);
   
   if (cached) {
-   // console.log('✅ Returning cached ranked data');
     return cached;
   }
 
@@ -86,7 +81,6 @@ export const getLeaderboard = async (bracket = '1v1', region = 'all', page = 1) 
   const cached = getCachedData(cacheKey);
   
   if (cached) {
-    console.log('✅ Returning cached leaderboard');
     return cached;
   }
 
@@ -100,3 +94,4 @@ export const getLeaderboard = async (bracket = '1v1', region = 'all', page = 1) 
 };
 
 export default api;
+
