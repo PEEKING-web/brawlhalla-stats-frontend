@@ -13,9 +13,9 @@ export const AuthProvider = ({ children }) => {
 
   const checkAuth = async () => {
     try {
-      // Add timeout to prevent hanging
+     
       const controller = new AbortController();
-      const timeoutId = setTimeout(() => controller.abort(), 3000); // 3 second timeout
+      const timeoutId = setTimeout(() => controller.abort(), 3000); 
       
       const userData = await getCurrentUser();
       clearTimeout(timeoutId);

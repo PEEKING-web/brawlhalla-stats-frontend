@@ -2,9 +2,9 @@ import axios from 'axios';
 
 const API_URL = import.meta.env.VITE_API_URL || '';
 
-// Simple in-memory cache
+// memory cache
 const cache = new Map();
-const CACHE_DURATION = 5 * 60 * 1000; // 5 minutes
+const CACHE_DURATION = 5 * 60 * 1000; 
 
 const api = axios.create({
   baseURL: `${API_URL}/api/brawlhalla`,
@@ -12,7 +12,7 @@ const api = axios.create({
   timeout: 10000
 });
 
-// Cache helper functions
+
 const getCacheKey = (url, params) => {
   return `${url}_${JSON.stringify(params || {})}`;
 };

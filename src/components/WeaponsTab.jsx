@@ -1,11 +1,9 @@
-"use client"
-
 import { useState } from 'react'
 
 function WeaponsTab({ playerData }) {
   const [sortBy, setSortBy] = useState('damage')
+
   
-  // LOGIC PRESERVED 100%
   const legends = playerData.legends || []
   let totalWeapon1Damage = 0, totalWeapon1Kos = 0
   let totalWeapon2Damage = 0, totalWeapon2Kos = 0

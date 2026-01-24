@@ -4,10 +4,11 @@ const API_URL = import.meta.env.VITE_API_URL || '';
 
 const featuresAPI = axios.create({
   baseURL: `${API_URL}/api`,
-  withCredentials: true, // ✅ This 
+  withCredentials: true, 
   timeout: 10000
 });
-// ===== FAVORITES =====
+
+//favorites
 export const getFavorites = async () => {
   const response = await featuresAPI.get('/favorites');
   return response.data;
@@ -28,7 +29,7 @@ export const checkFavorite = async (brawlhallaId) => {
   return response.data;
 };
 
-// ===== NOTES =====
+// notes
 export const getNotesForPlayer = async (brawlhallaId) => {
   const response = await featuresAPI.get(`/notes/player/${brawlhallaId}`);
   return response.data;
@@ -59,7 +60,7 @@ export const deleteNote = async (noteId) => {
   return response.data;
 };
 
-// ===== TRACKING =====
+// tracking
 export const getTrackedPlayers = async () => {
   const response = await featuresAPI.get('/tracking');
   return response.data;

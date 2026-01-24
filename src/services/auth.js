@@ -1,6 +1,5 @@
 import axios from 'axios';
 
-// Use relative URL (empty string) to use Vercel proxy
 const API_URL = import.meta.env.VITE_API_URL || '';
 
 const authAPI = axios.create({
@@ -17,7 +16,7 @@ export const loginWithSteam = () => {
 export const getCurrentUser = async () => {
   try {
     const response = await authAPI.get('/user', {
-      withCredentials: true, // ⭐ ADD THIS explicitly
+      withCredentials: true, 
       timeout: 5000
     });
     return response.data;
@@ -31,7 +30,7 @@ export const linkBrawlhallaAccount = async (brawlhallaId) => {
   try {
     const response = await authAPI.post('/link-brawlhalla', 
       { brawlhallaId },
-      { withCredentials: true } //   THIS
+      { withCredentials: true } 
     );
     return response.data;
   } catch (error) {
@@ -42,7 +41,7 @@ export const linkBrawlhallaAccount = async (brawlhallaId) => {
 export const unlinkBrawlhallaAccount = async () => {
   try {
     const response = await authAPI.post('/unlink-brawlhalla', {}, {
-      withCredentials: true // ⭐ ADD THIS
+      withCredentials: true 
     });
     return response.data;
   } catch (error) {
@@ -53,7 +52,7 @@ export const unlinkBrawlhallaAccount = async () => {
 export const logout = async () => {
   try {
     const response = await authAPI.get('/logout', {
-      withCredentials: true // ⭐ ADD THIS
+      withCredentials: true
     });
     return response.data;
   } catch (error) {
