@@ -244,6 +244,10 @@ function MyProfile() {
                   💡 How to find your Brawlhalla ID:
                 </p>
                 <ul className="text-zinc-400 text-sm space-y-1">
+                    <li>•Open brawlhalla</li>
+                    <li>• On Top Right Open your inventroy</li>
+                    <li>• There it is your BrawlID on top right of the inventory Section</li>
+                    <li>• OR YOU CAN</li>
                   <li>• Search for any player on the home page</li>
                   <li>• Your Brawlhalla ID appears in the URL</li>
                   <li>• Or check in-game profile settings</li>
@@ -260,18 +264,14 @@ function MyProfile() {
 
 // Wrapper component to show PlayerProfile with pre-loaded data
 function PlayerProfileWrapper({ playerId, initialPlayerData, initialRankedData }) {
-  // This is a simplified version - you could create a modified PlayerProfile
-  // For now, we'll redirect to the actual player profile page
   useEffect(() => {
-    // Just show it in the current context
+    
   }, []);
 
-  // Import the actual PlayerProfile component and render it inline
-  // Or create a custom view here with the same components
+ 
   return (
     <div className="min-h-screen w-full bg-[#050505] relative text-white font-sans selection:bg-indigo-500/30 pb-20">
-      {/* You can either redirect or render PlayerProfile content here */}
-      {/* For simplicity, let's just import components and display them */}
+
       <div className="max-w-[1600px] mx-auto p-6 md:p-10 relative z-10">
         <div className="text-center py-20">
           <h1 className="text-4xl font-black text-white mb-4">
